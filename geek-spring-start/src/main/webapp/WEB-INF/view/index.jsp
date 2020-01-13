@@ -1,19 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Maria
-  Date: 09.01.2020
-  Time: 11:52
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css"/>
 </head>
+
 <body>
-<h1>
-    ${message}
-</h1>
+<h1>Welcome page</h1>
+
+<h1> Hello ${name}</h1>
+
+<%--, ${name}.--%>
 
 </body>
 </html>
