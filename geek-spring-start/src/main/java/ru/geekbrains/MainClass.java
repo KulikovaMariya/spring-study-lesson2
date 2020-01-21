@@ -9,9 +9,10 @@ import java.util.List;
 public class MainClass {
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<Customer> customerList = dao.getCustomersOrderedProductById(1L);
-        for (Customer customer : customerList) {
-            System.out.println(customer.getCustomerName());
+        List<ProductsOrdered> customerList = dao.getCustomersOrderedProductById(1L);
+        for (ProductsOrdered productsOrdered : customerList) {
+            System.out.println("cost"  + " " + productsOrdered.getCost());
+            System.out.println("date"  + " " + productsOrdered.getDate());
         }
         dao.close();
     }

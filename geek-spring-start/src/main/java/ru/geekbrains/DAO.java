@@ -16,20 +16,34 @@ public class DAO {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Customer.class)
                 .addAnnotatedClass(Product.class)
+                .addAnnotatedClass(ProductsOrdered.class)
+                .addAnnotatedClass(ProductsOrderedId.class)
                 .buildSessionFactory();
         this.session = factory.getCurrentSession();
     }
 
-    public List<Product> getOrderedProductsByCustomerId(Long id) {
+//    public List<Product> getOrderedProductsByCustomerId(Long id) {
+//        session.beginTransaction();
+//        Customer customer = session.get(Customer.class, id);
+//        return customer.getOrderedProductsList();
+//    }
+//
+//    public List<Customer> getCustomersOrderedProductById(Long id) {
+//        session.beginTransaction();
+//        Product product = session.get(Product.class, id);
+//        return product.getCustomersOrderedProductList();
+//    }
+
+    public List<ProductsOrdered> getOrderedProductsByCustomerId(Long id) {
         session.beginTransaction();
         Customer customer = session.get(Customer.class, id);
         return customer.getOrderedProductsList();
     }
 
-    public List<Customer> getCustomersOrderedProductById(Long id) {
+    public List<ProductsOrdered> getCustomersOrderedProductById(Long id) {
         session.beginTransaction();
         Product product = session.get(Product.class, id);
-        return product.getCustomersOrderedProductList();
+        return product.getCustomersOrderedProduct();
     }
 
     public void deleteCustomer(Customer customer) {

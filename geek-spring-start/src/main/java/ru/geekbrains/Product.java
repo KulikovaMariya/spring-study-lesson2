@@ -1,6 +1,7 @@
 package ru.geekbrains;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,11 +18,14 @@ public class Product {
     @Column(name = "product_cost")
     private Long cost;
 
-    @ManyToMany
-    @JoinTable(name = "products_ordered",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "customer_id"))
-    private List<Customer> customersOrderedProductList;
+//    @ManyToMany
+//    @JoinTable(name = "products_ordered",
+//            joinColumns = @JoinColumn(name = "product_id"),
+//            inverseJoinColumns = @JoinColumn(name = "customer_id"))
+//    private List<Customer> customersOrderedProductList;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductsOrdered> customersOrderedProduct = new ArrayList<>();
 
     public Product() {
     }
@@ -51,11 +55,20 @@ public class Product {
         this.cost = cost;
     }
 
-    public List<Customer> getCustomersOrderedProductList() {
-        return customersOrderedProductList;
+//    public List<Customer> getCustomersOrderedProductList() {
+//        return customersOrderedProductList;
+//    }
+//
+//    public void setCustomersOrderedProductList(List<Customer> customersOrderedProductList) {
+//        this.customersOrderedProductList = customersOrderedProductList;
+//    }
+
+
+    public List<ProductsOrdered> getCustomersOrderedProduct() {
+        return customersOrderedProduct;
     }
 
-    public void setCustomersOrderedProductList(List<Customer> customersOrderedProductList) {
-        this.customersOrderedProductList = customersOrderedProductList;
+    public void setCustomersOrderedProduct(List<ProductsOrdered> customersOrderedProduct) {
+        this.customersOrderedProduct = customersOrderedProduct;
     }
 }
