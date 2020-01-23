@@ -1,4 +1,6 @@
-package ru.geekbrains;
+package ru.geekbrains.entity;
+
+import ru.geekbrains.entity.ProductsOrdered;
 
 import javax.persistence.*;
 import java.util.ArrayList;

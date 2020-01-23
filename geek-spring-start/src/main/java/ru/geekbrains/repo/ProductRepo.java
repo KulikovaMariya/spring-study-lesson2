@@ -1,7 +1,7 @@
 package ru.geekbrains.repo;
 
 import org.springframework.stereotype.Component;
-import ru.geekbrains.Product;
+import ru.geekbrains.entity.Product;
 
 import java.util.ArrayList;
 import java.util.List;

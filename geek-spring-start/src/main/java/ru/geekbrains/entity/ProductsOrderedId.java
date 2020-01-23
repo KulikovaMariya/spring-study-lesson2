@@ -1,4 +1,4 @@
-package ru.geekbrains;
+package ru.geekbrains.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

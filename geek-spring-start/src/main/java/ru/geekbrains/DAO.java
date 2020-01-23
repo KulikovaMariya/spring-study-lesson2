@@ -3,6 +3,10 @@ package ru.geekbrains;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import ru.geekbrains.entity.Customer;
+import ru.geekbrains.entity.Product;
+import ru.geekbrains.entity.ProductsOrdered;
+import ru.geekbrains.entity.ProductsOrderedId;
 
 import java.util.List;
 
@@ -69,6 +73,12 @@ public class DAO {
         session.beginTransaction();
         Product product = session.get(Product.class, id);
         session.delete(product);
+        session.getTransaction().commit();
+    }
+
+    public void saveProduct(Product product) {
+        session.beginTransaction();
+        session.save(product);
         session.getTransaction().commit();
     }
 

@@ -1,4 +1,4 @@
-package ru.geekbrains.controllers;
+package ru.geekbrains.springdata.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.geekbrains.entity.Product;
-import ru.geekbrains.service.ProductService;
+import ru.geekbrains.springdata.service.ProductService;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/productsnew")
 public class ProductController {
     private ProductService productService;
 
@@ -29,12 +29,12 @@ public class ProductController {
         return "home";
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
-    public String findById(Model uiModel, @PathVariable(value = "id") int id) {
-        Product product = productService.getProductById(id);
-        uiModel.addAttribute("product", product);
-        return "home";
-    }
+//    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+//    public String findById(Model uiModel, @PathVariable(value = "id") int id) {
+//        Product product = productService.getProductById(id);
+//        uiModel.addAttribute("product", product);
+//        return "home";
+//    }
 
     @RequestMapping("/newProduct")
     public String addNewProduct(Model uiModel) {
@@ -42,11 +42,11 @@ public class ProductController {
         return "productForm";
     }
 
-    @RequestMapping("/processProductForm")
-    public String processProductForm(Model uiModel, @ModelAttribute("product") Product product) {
-        productService.addProduct(product);
-        uiModel.addAttribute("product", product);
-        return "product";
-    }
+//    @RequestMapping("/processProductForm")
+//    public String processProductForm(Model uiModel, @ModelAttribute("product") Product product) {
+//        productService.addProduct(product);
+//        uiModel.addAttribute("product", product);
+//        return "product";
+//    }
 
 }
