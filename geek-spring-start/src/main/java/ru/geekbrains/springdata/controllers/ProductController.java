@@ -3,7 +3,6 @@ package ru.geekbrains.springdata.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,24 +28,23 @@ public class ProductController {
         return "home";
     }
 
-//    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
-//    public String findById(Model uiModel, @PathVariable(value = "id") int id) {
-//        Product product = productService.getProductById(id);
-//        uiModel.addAttribute("product", product);
-//        return "home";
-//    }
+    @RequestMapping(value = "/mincost/{minCost}", method = RequestMethod.GET)
+    public String findByCostGreaterThanEqual(Model uiModel, @PathVariable(value = "minCost") Long minCost) {
+        List<Product> products = productService.findByCostLessThanEqual(minCost);
+        uiModel.addAttribute("products", products);
+        return "home";
+    }
+
+    @RequestMapping(value = "/maxcost/{maxCost}", method = RequestMethod.GET)
+    public String findByCostLessThanEqual(Model uiModel, @PathVariable(value = "maxCost") Long maxCost) {
+        List<Product> products = productService.findByCostGreaterThanEqual(maxCost);
+        uiModel.addAttribute("products", products);
+        return "home";
+    }
 
     @RequestMapping("/newProduct")
     public String addNewProduct(Model uiModel) {
         uiModel.addAttribute("product", new Product());
         return "productForm";
     }
-
-//    @RequestMapping("/processProductForm")
-//    public String processProductForm(Model uiModel, @ModelAttribute("product") Product product) {
-//        productService.addProduct(product);
-//        uiModel.addAttribute("product", product);
-//        return "product";
-//    }
-
 }
