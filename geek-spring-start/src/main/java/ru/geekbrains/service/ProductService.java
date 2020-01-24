@@ -7,7 +7,7 @@ import ru.geekbrains.repo.ProductRepo;
 
 import java.util.List;
 
-@Service
+@Service("productServiceOld")
 public class ProductService {
     private ProductRepo productRepo;
 
