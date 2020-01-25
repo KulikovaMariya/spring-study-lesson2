@@ -1,7 +1,7 @@
 package ru.geekbrains.repo;
 
 import org.springframework.stereotype.Component;
-import ru.geekbrains.Product;
+import ru.geekbrains.entity.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ public class ProductRepo {
 
     public ProductRepo() {
         productList = new ArrayList<Product>();
-        productList.add(new Product(123, "vine", 10));
-        productList.add(new Product(124, "beer", 2));
+        productList.add(new Product("vine", 10L));
+        productList.add(new Product("beer", 2L));
     }
 
     public void addProduct(Product product) {

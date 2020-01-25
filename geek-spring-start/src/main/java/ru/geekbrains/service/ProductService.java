@@ -2,12 +2,12 @@ package ru.geekbrains.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.geekbrains.Product;
+import ru.geekbrains.entity.Product;
 import ru.geekbrains.repo.ProductRepo;
 
 import java.util.List;
 
-@Service
+@Service("productServiceOld")
 public class ProductService {
     private ProductRepo productRepo;
 
