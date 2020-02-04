@@ -1,6 +1,7 @@
 # My ignored files
 clientDir/
 serverDir/
+target/
 
 ## Java
 
