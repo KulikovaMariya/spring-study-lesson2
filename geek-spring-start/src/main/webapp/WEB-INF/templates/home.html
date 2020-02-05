@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <div th:replace="~{menu :: menu}"></div>
+</nav>
+<!--<ul th:each="product : ${products}">-->
+    <!--<li th:text="${product.title}"></li>-->
+<!--</ul>-->
+
+<table>
+    <thead><tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Cost</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}" />
+        <td th:text="${product.title}" />
+        <td th:text="${product.cost}"/>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <div th:replace="~{menu :: menu}"></div>
+</nav>
+<br>
+
+<a th:href="@{/productsnew/}">Show products list</a>
+
+<br>
+
+<form th:action="@{/mincost/{minCost}}" th:object="product" method="get">
+    <input type="text" th:field="{minCost}">
+    <button type="submit">min cost</button>
+</form>
+
+</body>
+</html>

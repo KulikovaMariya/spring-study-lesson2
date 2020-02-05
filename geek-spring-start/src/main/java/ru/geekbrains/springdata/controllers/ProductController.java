@@ -23,8 +23,10 @@ public class ProductController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showAllProducts(Model uiModel) {
+        System.out.println("start showAllProducts");
         List<Product> productList = productService.getAll();
         uiModel.addAttribute("products", productList);
+        System.out.println("end showAllProducts " + productList.size());
         return "home";
     }
 

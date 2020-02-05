@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+</head>
+<body>
+<nav>
+    <lable>Menu:</lable>
+    <ul th:fragment="menu">
+        <li>
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/productsnew/}">Products</a>
+            <a href="#">Product info</a>
+            <a href="#">Add product</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>
